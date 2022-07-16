@@ -4,8 +4,11 @@ import Head from "next/head";
 import type { NextPage } from "next";
 
 // import Swiper core and required modules
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+
+import { continents } from "../../data";
+import Link from "next/link";
 
 const Home: NextPage = () => {
   return (
@@ -14,25 +17,6 @@ const Home: NextPage = () => {
         <title>WorldTrip | Home</title>
       </Head>
       <Flex direction={"column"}>
-        <Flex
-          // HEADER
-
-          as={"header"}
-          width={"100vw"}
-          maxWidth={"1440px"}
-          height={"100px"}
-          mx={"auto"}
-          alignItems={"center"}
-          justifyContent={"center"}
-        >
-          <img
-            src={"/assets/logo.svg"}
-            alt="logo"
-            width={"184.06px"}
-            height={"45.92px"}
-          />
-        </Flex>
-
         <Flex
           // BANNER
 
@@ -153,157 +137,51 @@ const Home: NextPage = () => {
           Então escolha seu continente
         </Heading>
 
-        <Flex width={"1240px"} h={"450px"} mx="auto" my={"52px"}>
+        <Flex w={"1240px"} h={"450px"} mx="auto" my={"52px"}>
           <Swiper
-            modules={[Navigation, Pagination, Scrollbar, A11y]}
+            modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
             slidesPerView={1}
             navigation
             pagination={{ clickable: true }}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
           >
-            <SwiperSlide>
-              <Flex position={"relative"}>
-                <Image src="/assets/europe.svg" alt="Europe" />
-                <Box
-                  position={"absolute"}
-                  top="50%"
-                  left={"50%"}
-                  transform="translate(-50%, -50%)"
-                  textAlign={"center"}
-                  fontWeight={"700"}
-                >
-                  <Heading
-                    fontSize={"48px"}
-                    lineHeight={"72px"}
-                    color={"light.headingsAndText"}
-                  >
-                    Europa
-                  </Heading>
-                  <Text
-                    fontSize={"24px"}
-                    lineHeight={"36px"}
-                    color={"light.info"}
-                  >
-                    O continente mais antigo.
-                  </Text>
-                </Box>
-              </Flex>
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <Flex position={"relative"}>
-                <Image src="/assets/europe.svg" alt="Europe" />
-                <Box
-                  position={"absolute"}
-                  top="50%"
-                  left={"50%"}
-                  transform="translate(-50%, -50%)"
-                  textAlign={"center"}
-                  fontWeight={"700"}
-                >
-                  <Heading
-                    fontSize={"48px"}
-                    lineHeight={"72px"}
-                    color={"light.headingsAndText"}
-                  >
-                    Europa
-                  </Heading>
-                  <Text
-                    fontSize={"24px"}
-                    lineHeight={"36px"}
-                    color={"light.info"}
-                  >
-                    O continente mais antigo.
-                  </Text>
-                </Box>
-              </Flex>
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <Flex position={"relative"}>
-                <Image src="/assets/europe.svg" alt="Europe" />
-                <Box
-                  position={"absolute"}
-                  top="50%"
-                  left={"50%"}
-                  transform="translate(-50%, -50%)"
-                  textAlign={"center"}
-                  fontWeight={"700"}
-                >
-                  <Heading
-                    fontSize={"48px"}
-                    lineHeight={"72px"}
-                    color={"light.headingsAndText"}
-                  >
-                    Europa
-                  </Heading>
-                  <Text
-                    fontSize={"24px"}
-                    lineHeight={"36px"}
-                    color={"light.info"}
-                  >
-                    O continente mais antigo.
-                  </Text>
-                </Box>
-              </Flex>
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <Flex position={"relative"}>
-                <Image src="/assets/europe.svg" alt="Europe" />
-                <Box
-                  position={"absolute"}
-                  top="50%"
-                  left={"50%"}
-                  transform="translate(-50%, -50%)"
-                  textAlign={"center"}
-                  fontWeight={"700"}
-                >
-                  <Heading
-                    fontSize={"48px"}
-                    lineHeight={"72px"}
-                    color={"light.headingsAndText"}
-                  >
-                    Europa
-                  </Heading>
-                  <Text
-                    fontSize={"24px"}
-                    lineHeight={"36px"}
-                    color={"light.info"}
-                  >
-                    O continente mais antigo.
-                  </Text>
-                </Box>
-              </Flex>
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <Flex position={"relative"}>
-                <Image src="/assets/europe.svg" alt="Europe" />
-                <Box
-                  position={"absolute"}
-                  top="50%"
-                  left={"50%"}
-                  transform="translate(-50%, -50%)"
-                  textAlign={"center"}
-                  fontWeight={"700"}
-                >
-                  <Heading
-                    fontSize={"48px"}
-                    lineHeight={"72px"}
-                    color={"light.headingsAndText"}
-                  >
-                    Europa
-                  </Heading>
-                  <Text
-                    fontSize={"24px"}
-                    lineHeight={"36px"}
-                    color={"light.info"}
-                  >
-                    O continente mais antigo.
-                  </Text>
-                </Box>
-              </Flex>
-            </SwiperSlide>
+            {continents?.map((continent) => (
+              <SwiperSlide key={continent.slug}>
+                <Link href={`/continent/${continent.slug}`}>
+                  <a>
+                    <Flex
+                      w={"1240px"}
+                      h={"450px"}
+                      direction={"column"}
+                      alignItems={"center"}
+                      justifyContent={"center"}
+                      background={`linear-gradient(#00000075,#00000075), url('${continent.slideImg}')`}
+                      backgroundPosition={"center"}
+                      backgroundRepeat={"no-repeat"}
+                      backgroundSize={"cover"}
+                    >
+                      <Heading
+                        fontSize={"48px"}
+                        lineHeight={"72px"}
+                        color={"light.headingsAndText"}
+                      >
+                        {continent.name}
+                      </Heading>
+                      <Text
+                        fontSize={"24px"}
+                        lineHeight={"36px"}
+                        color={"light.info"}
+                      >
+                        {continent.title}
+                      </Text>
+                    </Flex>
+                  </a>
+                </Link>
+              </SwiperSlide>
+            ))}
           </Swiper>
         </Flex>
       </Flex>
