@@ -27,7 +27,7 @@ export const theme = extendTheme({
 
   styles: {
     global: {
-      "html, body": {
+      body: {
         color: "light.headingsAndText",
         backgroundColor: "bgColor",
       },

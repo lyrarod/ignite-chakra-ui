@@ -1,23 +1,27 @@
 import { Flex, Image } from "@chakra-ui/react";
-import type { NextComponentType } from "next";
+import Link from "next/link";
 
-export const Header: NextComponentType = () => {
+export const Header = () => {
   return (
     <Flex
       as={"header"}
-      width={"100vw"}
-      maxWidth={"1440px"}
-      height={"100px"}
+      w={"full"}
+      maxW={"1440px"}
+      h={"100px"}
       mx={"auto"}
-      alignItems={"center"}
-      justifyContent={"center"}
+      align={"center"}
+      justify={"center"}
     >
-      <Image
-        src={"/assets/logo.svg"}
-        alt="logo"
-        width={"184.06px"}
-        height={"45.92px"}
-      />
+      <Link href={"/"}>
+        <a>
+          <Image
+            src={"/assets/logo.svg"}
+            alt="logo"
+            width={"184.06px"}
+            height={"45.92px"}
+          />
+        </a>
+      </Link>
     </Flex>
   );
 };

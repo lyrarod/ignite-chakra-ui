@@ -4,7 +4,7 @@ import type { AppProps } from "next/app";
 
 import { theme } from "../styles/theme";
 
-import { Header } from "../components/Header";
+import { Header } from "../components/header";
 
 // Import Swiper styles
 import "swiper/css";
