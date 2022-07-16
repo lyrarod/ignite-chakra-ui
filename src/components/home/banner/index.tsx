@@ -13,7 +13,7 @@ export const Banner = () => {
     >
       <Flex
         w={"full"}
-        maxW={"1440px"}
+        maxW={"1160px"}
         mx={"auto"}
         alignItems="center"
         justifyContent={"space-between"}

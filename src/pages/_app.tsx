@@ -1,10 +1,10 @@
-import { Header } from "../components/Header";
-
 import { ChakraProvider } from "@chakra-ui/react";
 
 import type { AppProps } from "next/app";
 
 import { theme } from "../styles/theme";
+
+import { Header } from "../components/Header";
 
 // Import Swiper styles
 import "swiper/css";

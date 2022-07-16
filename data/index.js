@@ -115,10 +115,10 @@ export const continents = [
   },
 
   {
-    name: "Oceânia",
+    name: "Oceania",
     slug: "oceania",
     title: "O continente Oceânico...",
-    bio: "A Europa é, por convenção, um dos seis continentes do mundo. Compreendendo a península ocidental da Eurásia, a Europa geralmente divide-se da Ásia a leste pela divisória de águas dos montes Urais, o rio Ural, o mar Cáspio, o Cáucaso, e o mar Negro a sudeste",
+    bio: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus ipsa magnam architecto dicta ab repudiandae ea quos ex? Minima iure aut animi modi maiores a consectetur accusantium accusamus, illo fugit? Assumenda voluptas corrupti ducimus voluptatem culpa magni porro?",
     banner: "/assets/continent/europe.svg",
     slideImg: "/assets/slide/oceania.png",
     info: {

@@ -3,14 +3,15 @@ import { Flex, Image, Text } from "@chakra-ui/react";
 export const TravelTypes = () => {
   return (
     <Flex
-      width={"100%"}
-      maxWidth={"1160px"}
+      w={"full"}
+      maxW={"1160px"}
+      direction={["column", "row"]}
       mx="auto"
       mt={"80px"}
       align="center"
       justifyContent={"space-between"}
       color={"dark.headingsAndText"}
-      fontSize="24"
+      fontSize="24px"
       fontWeight={"600"}
     >
       <Flex direction={"column"} alignItems="center">
