@@ -1,7 +1,7 @@
 import { Flex, Image } from "@chakra-ui/react";
 import Link from "next/link";
 
-export const Header = () => {
+export default function Header() {
   return (
     <Flex
       as={"header"}
@@ -24,4 +24,4 @@ export const Header = () => {
       </Link>
     </Flex>
   );
-};
+}
