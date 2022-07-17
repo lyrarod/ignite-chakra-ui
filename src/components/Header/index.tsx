@@ -1,5 +1,5 @@
-import { Flex, Image } from "@chakra-ui/react";
 import Link from "next/link";
+import { Flex, Image } from "@chakra-ui/react";
 
 export const Header = () => {
   return (

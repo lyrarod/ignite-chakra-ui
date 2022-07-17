@@ -1,5 +1,5 @@
-import { Flex, Heading, Text } from "@chakra-ui/react";
 import Link from "next/link";
+import { Flex, Heading, Text } from "@chakra-ui/react";
 
 // import Swiper core and required modules
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -18,7 +18,7 @@ interface SlideProps {
 
 export const Slide = ({ continents }: SlideProps) => {
   return (
-    <Flex w={"100%"} maxW={"1240px"} h={"450px"} mx="auto" my={"52px"}>
+    <Flex w={"full"} maxW={"1240px"} h={"450px"} mx="auto" my={"52px"}>
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
         slidesPerView={1}

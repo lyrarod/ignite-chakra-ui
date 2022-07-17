@@ -7,9 +7,9 @@ export const continents = [
     banner: "/assets/continent/america-norte.svg",
     slideImg: "/assets/slide/america-do-norte.png",
     info: {
-      paise: 10,
+      paises: 10,
       linguas: 103,
-      "cidades+100": 17,
+      cidadesmais: 17,
     },
 
     cities: [
@@ -30,9 +30,9 @@ export const continents = [
     banner: "/assets/continent/america-norte.svg",
     slideImg: "/assets/slide/america-do-sul.png",
     info: {
-      paise: 10,
+      paises: 10,
       linguas: 103,
-      "cidades+100": 17,
+      cidadesmais: 17,
     },
 
     cities: [
@@ -53,9 +53,9 @@ export const continents = [
     banner: "/assets/continent/america-norte.svg",
     slideImg: "/assets/slide/asia.png",
     info: {
-      paise: 10,
+      paises: 10,
       linguas: 103,
-      "cidades+100": 17,
+      cidadesmais: 17,
     },
 
     cities: [
@@ -76,9 +76,9 @@ export const continents = [
     banner: "/assets/continent/africa.svg",
     slideImg: "/assets/slide/africa.jpg",
     info: {
-      paise: 30,
+      paises: 30,
       linguas: 120,
-      "cidades+100": 30,
+      cidadesmais: 30,
     },
 
     cities: [
@@ -99,9 +99,9 @@ export const continents = [
     banner: "/assets/continent/europe.svg",
     slideImg: "/assets/slide/europe.svg",
     info: {
-      paise: 50,
+      paises: 50,
       linguas: 60,
-      "cidades+100": 27,
+      cidadesmais: 27,
     },
 
     cities: [
@@ -122,9 +122,9 @@ export const continents = [
     banner: "/assets/continent/europe.svg",
     slideImg: "/assets/slide/oceania.png",
     info: {
-      paise: 50,
+      paises: 50,
       linguas: 60,
-      "cidades+100": 27,
+      cidadesmais: 27,
     },
 
     cities: [
@@ -137,3 +137,13 @@ export const continents = [
     ],
   },
 ];
+
+export const loadAllContinents = async () => {
+  const res = continents.map((c) => c);
+  return res;
+};
+
+export const loadContinent = async (continent) => {
+  const res = continents.find((c) => c.slug === continent);
+  return res;
+};
