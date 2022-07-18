@@ -1,4 +1,4 @@
-export const continents = [
+const continents = [
   {
     name: "América do Norte",
     slug: "america-do-norte",
@@ -30,9 +30,9 @@ export const continents = [
     banner: "/assets/continent/america-norte.svg",
     slideImg: "/assets/slide/america-do-sul.png",
     info: {
-      paises: 10,
-      linguas: 103,
-      cidadesmais: 17,
+      paises: 27,
+      linguas: 78,
+      cidadesmais: 31,
     },
 
     cities: [
@@ -53,9 +53,9 @@ export const continents = [
     banner: "/assets/continent/america-norte.svg",
     slideImg: "/assets/slide/asia.png",
     info: {
-      paises: 10,
-      linguas: 103,
-      cidadesmais: 17,
+      paises: 16,
+      linguas: 99,
+      cidadesmais: 33,
     },
 
     cities: [
@@ -122,9 +122,9 @@ export const continents = [
     banner: "/assets/continent/europe.svg",
     slideImg: "/assets/slide/oceania.png",
     info: {
-      paises: 50,
-      linguas: 60,
-      cidadesmais: 27,
+      paises: 19,
+      linguas: 57,
+      cidadesmais: 41,
     },
 
     cities: [
@@ -138,12 +138,8 @@ export const continents = [
   },
 ];
 
-export const loadAllContinents = async () => {
-  const res = continents.map((c) => c);
-  return res;
-};
+export const getContinents = () => continents;
 
-export const loadContinent = async (continent) => {
-  const res = continents.find((c) => c.slug === continent);
-  return res;
+export const getContinentBySlug = (slug) => {
+  return continents.find((c) => c.slug === slug);
 };
