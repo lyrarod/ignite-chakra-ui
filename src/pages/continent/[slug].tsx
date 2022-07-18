@@ -2,10 +2,10 @@ import Head from "next/head";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { Flex, Heading, Text } from "@chakra-ui/react";
 
-import { loadAllContinents, loadContinent } from "../../../data";
-
 import { Tooltip } from "@chakra-ui/tooltip";
 import { InfoOutlineIcon } from "@chakra-ui/icons";
+
+import { getContinents, getContinentBySlug } from "../../../data";
 
 type Continent = {
   name: string;
@@ -33,8 +33,6 @@ interface ContinentProps {
 }
 
 export default function Continent({ continent }: ContinentProps) {
-  // console.log(continent);
-
   return (
     <>
       <Head>
@@ -46,10 +44,10 @@ export default function Continent({ continent }: ContinentProps) {
           // BANNER
           w={"full"}
           h={"500px"}
-          backgroundImage={`linear-gradient(#00000085, #00000085), url(${continent.slideImg})`}
+          backgroundSize={"cover"}
           backgroundPosition={"center"}
           backgroundRepeat={"no-repeat"}
-          backgroundSize={"cover"}
+          backgroundImage={`linear-gradient(#00000075, #00000075), url('${continent.slideImg}')`}
         >
           <Flex
             w={"full"}
@@ -158,7 +156,7 @@ export default function Continent({ continent }: ContinentProps) {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug } = params!;
 
-  const continent = await loadContinent(slug);
+  const continent = getContinentBySlug(slug);
 
   return {
     props: { continent },
@@ -167,7 +165,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const continents = await loadAllContinents();
+  const continents = getContinents();
 
   const paths = continents.map((c) => ({
     params: {

@@ -39,10 +39,10 @@ export const Slide = ({ continents }: SlideProps) => {
                   direction={"column"}
                   alignItems={"center"}
                   justifyContent={"center"}
-                  background={`linear-gradient(#00000075,#00000075), url('${continent.slideImg}')`}
+                  backgroundSize={"cover"}
                   backgroundPosition={"center"}
                   backgroundRepeat={"no-repeat"}
-                  backgroundSize={"cover"}
+                  backgroundImage={`linear-gradient(#00000075, #00000075), url('${continent.slideImg}')`}
                 >
                   <Heading
                     fontSize={"48px"}

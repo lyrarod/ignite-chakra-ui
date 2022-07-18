@@ -1,6 +1,10 @@
 import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
 
+import { getContinents } from "../../../../data";
+
 export const Banner = () => {
+  const numContinents = getContinents().length;
+
   return (
     <Flex
       w={"full"}
@@ -20,7 +24,7 @@ export const Banner = () => {
       >
         <Box>
           <Heading fontWeight={"500"} fontSize={36} lineHeight={"54px"}>
-            5 Continentes,
+            {numContinents} Continentes,
             <br />
             infinitas possibilidades.
           </Heading>

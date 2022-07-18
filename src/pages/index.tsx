@@ -1,15 +1,17 @@
-import { Box, Flex, Heading } from "@chakra-ui/react";
-
 import Head from "next/head";
 import type { NextPage } from "next";
 
+import { Box, Flex, Heading } from "@chakra-ui/react";
+
+import { Slide } from "../components/home/slide";
 import { Banner } from "../components/home/banner";
 import { TravelTypes } from "../components/home/travel-types";
-import { Slide } from "../components/home/slide";
 
-import { continents } from "../../data";
+import { getContinents } from "../../data";
 
 const Home: NextPage = () => {
+  const continents = getContinents();
+
   return (
     <>
       <Head>
