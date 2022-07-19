@@ -1,11 +1,11 @@
 import Head from "next/head";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { Flex, Heading, Text } from "@chakra-ui/react";
+import { Avatar, Flex, Heading, Image, Text } from "@chakra-ui/react";
 
 import { Tooltip } from "@chakra-ui/tooltip";
 import { InfoOutlineIcon } from "@chakra-ui/icons";
 
-import { getContinents, getContinentBySlug } from "../../../data";
+import { getContinents, getContinentBySlug } from "../../data";
 
 type Continent = {
   name: string;
@@ -148,6 +148,79 @@ export default function Continent({ continent }: ContinentProps) {
             </Flex>
           </Flex>
         </Flex>
+
+        <Flex
+          w={"full"}
+          maxW={1160}
+          mx={"auto"}
+          direction={"column"}
+          // bg={"gray.200"}
+        >
+          <Heading
+            color={"dark.headingsAndText"}
+            fontWeight={500}
+            lineHeight={"54px"}
+          >
+            Cidades +100
+          </Heading>
+
+          <Flex
+            // CIDADES +100 CARD CONTAINER
+            gap={45}
+            w={"full"}
+            my={"40px"}
+            wrap={"wrap"}
+          >
+            {continent.cities?.map((c, i) => (
+              <Flex
+                // CIDADES +100 CARDS
+                key={`${c.city}${i}`}
+                w={256}
+                h={279}
+                borderRadius={"4px"}
+                overflow={"hidden"}
+                direction={"column"}
+                borderWidth={1}
+                borderColor={"highlight50"}
+                bg={"white"}
+              >
+                <Image src={c.foto} alt={c.city} />
+
+                <Flex mt={"18px"} mx="auto">
+                  <Flex
+                    w={208}
+                    align={"center"}
+                    justify={"space-between"}
+                    // bg={"gray.200"}
+                  >
+                    <Flex direction={"column"} justify={"center"}>
+                      <Heading
+                        fontFamily={`'Barlow', sans-serif`}
+                        fontSize={20}
+                        fontWeight={600}
+                        lineHeight={"25px"}
+                        color={"dark.headingsAndText"}
+                      >
+                        {c.city}
+                      </Heading>
+                      <Text
+                        color={"dark.info"}
+                        fontFamily={`'Barlow', sans-serif`}
+                        fontSize={16}
+                        fontWeight={500}
+                        lineHeight={"26px"}
+                        mt={"12px"}
+                      >
+                        {c.subtitle}
+                      </Text>
+                    </Flex>
+                    <Avatar w={30} h={30} src={c.ellipse} />
+                  </Flex>
+                </Flex>
+              </Flex>
+            ))}
+          </Flex>
+        </Flex>
       </Flex>
     </>
   );
@@ -156,7 +229,7 @@ export default function Continent({ continent }: ContinentProps) {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug } = params!;
 
-  const continent = getContinentBySlug(slug);
+  const continent = await getContinentBySlug(slug);
 
   return {
     props: { continent },
@@ -165,7 +238,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const continents = getContinents();
+  const continents = await getContinents();
 
   const paths = continents.map((c) => ({
     params: {
@@ -175,6 +248,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: "blocking",
+    fallback: false,
   };
 };
