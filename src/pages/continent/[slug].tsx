@@ -39,7 +39,13 @@ export default function Continent({ continent }: ContinentProps) {
         <title>{`WorldTrip | ${continent.name}`}</title>
       </Head>
 
-      <Flex w={"full"} mx={"auto"} direction={"column"} overflow={"hidden"}>
+      <Flex
+        w={"full"}
+        mx={"auto"}
+        direction={"column"}
+        overflow={"hidden"}
+        pt={"100px"}
+      >
         <Flex
           // BANNER
           w={"full"}

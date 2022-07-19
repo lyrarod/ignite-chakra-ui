@@ -18,8 +18,8 @@ import "../styles/swiper.css";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Header />
       <ChakraProvider theme={theme}>
+        <Header />
         <Component {...pageProps} />
       </ChakraProvider>
     </>
