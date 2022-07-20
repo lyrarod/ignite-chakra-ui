@@ -10,7 +10,7 @@ export const Header = () => {
   return (
     <Flex
       as={"header"}
-      w={"100vw"}
+      w={"full"}
       h={"100px"}
       bg="bgColor"
       boxShadow={"0 2px 3px #00000030"}
