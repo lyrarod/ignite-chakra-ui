@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { Avatar, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import { Avatar, Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
 
 import { Tooltip } from "@chakra-ui/tooltip";
 import { InfoOutlineIcon } from "@chakra-ui/icons";
@@ -156,6 +156,8 @@ export default function Continent({ continent }: ContinentProps) {
         </Flex>
 
         <Flex
+          // CIDADES +100 CONTAINER
+
           w={"full"}
           maxW={1160}
           mx={"auto"}
@@ -186,43 +188,50 @@ export default function Continent({ continent }: ContinentProps) {
                 borderRadius={"4px"}
                 overflow={"hidden"}
                 direction={"column"}
-                borderWidth={1}
-                borderColor={"highlight50"}
                 bg={"white"}
               >
-                <Image src={c.foto} alt={c.city} />
+                <Image src={c.foto} alt={c.city} w={256} h={173} />
 
-                <Flex mt={"18px"} mx="auto">
-                  <Flex
-                    w={208}
-                    align={"center"}
-                    justify={"space-between"}
-                    // bg={"gray.200"}
-                  >
-                    <Flex direction={"column"} justify={"center"}>
-                      <Heading
-                        fontFamily={`'Barlow', sans-serif`}
-                        fontSize={20}
-                        fontWeight={600}
-                        lineHeight={"25px"}
-                        color={"dark.headingsAndText"}
-                      >
-                        {c.city}
-                      </Heading>
-                      <Text
-                        color={"dark.info"}
-                        fontFamily={`'Barlow', sans-serif`}
-                        fontSize={16}
-                        fontWeight={500}
-                        lineHeight={"26px"}
-                        mt={"12px"}
-                      >
-                        {c.subtitle}
-                      </Text>
+                <Box
+                  borderWidth={1}
+                  borderTop={"none"}
+                  borderColor={"highlight50"}
+                  w="full"
+                  h="full"
+                >
+                  <Flex mt={"18px"} mx="auto">
+                    <Flex
+                      w={208}
+                      mx="auto"
+                      align={"center"}
+                      justify={"space-between"}
+                      // bg={"gray.200"}
+                    >
+                      <Flex direction={"column"} justify={"center"}>
+                        <Heading
+                          fontFamily={`'Barlow', sans-serif`}
+                          fontSize={20}
+                          fontWeight={600}
+                          lineHeight={"25px"}
+                          color={"dark.headingsAndText"}
+                        >
+                          {c.city}
+                        </Heading>
+                        <Text
+                          color={"dark.info"}
+                          fontFamily={`'Barlow', sans-serif`}
+                          fontSize={16}
+                          fontWeight={500}
+                          lineHeight={"26px"}
+                          mt={"12px"}
+                        >
+                          {c.subtitle}
+                        </Text>
+                      </Flex>
+                      <Avatar w={30} h={30} src={c.ellipse} />
                     </Flex>
-                    <Avatar w={30} h={30} src={c.ellipse} />
                   </Flex>
-                </Flex>
+                </Box>
               </Flex>
             ))}
           </Flex>
