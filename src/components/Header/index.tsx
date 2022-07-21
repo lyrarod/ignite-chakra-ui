@@ -4,6 +4,15 @@ import { ChevronLeftIcon } from "@chakra-ui/icons";
 
 import { useRouter } from "next/router";
 
+const Logo = () => (
+  <Image
+    src={"/assets/logo.svg"}
+    alt="logo"
+    w={{ base: 81, md: 184 }}
+    h={{ base: 20, md: 45 }}
+  />
+);
+
 export const Header = () => {
   const { asPath } = useRouter();
 
@@ -11,7 +20,10 @@ export const Header = () => {
     <Flex
       as={"header"}
       w={"full"}
-      h={"100px"}
+      h={{
+        base: "50px",
+        md: "100px",
+      }}
       bg="bgColor"
       boxShadow={"0 2px 3px #00000030"}
       position={asPath !== "/" ? "fixed" : "static"}
@@ -40,21 +52,11 @@ export const Header = () => {
         )}
 
         {asPath === "/" ? (
-          <Image
-            src={"/assets/logo.svg"}
-            alt="logo"
-            width={"184.06px"}
-            height={"45.92px"}
-          />
+          <Logo />
         ) : (
           <Link href={"/"}>
             <a>
-              <Image
-                src={"/assets/logo.svg"}
-                alt="logo"
-                width={"184.06px"}
-                height={"45.92px"}
-              />
+              <Logo />
             </a>
           </Link>
         )}
