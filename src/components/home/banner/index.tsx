@@ -7,7 +7,6 @@ export const Banner = () => {
     <Flex
       w={"full"}
       height={{ base: 163, md: 368 }}
-      paddingLeft={{ base: "16px", md: "0" }}
       backgroundImage={"url('/assets/background.svg')"}
       backgroundPosition={"center"}
       backgroundRepeat={"no-repeat"}
@@ -18,8 +17,7 @@ export const Banner = () => {
         maxW={"1160px"}
         mx={"auto"}
         alignItems="center"
-        justifyContent={"space-between"}
-        // bg="tomato"
+        justify={{ base: "center", md: "space-between" }}
       >
         <Box>
           <Heading

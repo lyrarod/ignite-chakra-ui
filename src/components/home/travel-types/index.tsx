@@ -1,63 +1,112 @@
 import { Flex, Image, Text } from "@chakra-ui/react";
+import { useBreakpointValue } from "@chakra-ui/react";
+
+type TypesComponentProps = {
+  src: string;
+  alt: string;
+  text: string;
+};
 
 export const TravelTypes = () => {
-  return (
+  const mobile = useBreakpointValue({ base: true, md: false });
+
+  const TypesComponent = ({ src, alt, text }: TypesComponentProps) => {
+    const ellipse = "/assets/ellipse-home.png";
+
+    return (
+      <Flex align="center" direction={{ base: "row", md: "column" }}>
+        <Image
+          src={mobile ? ellipse : src}
+          alt={alt}
+          w={{ base: "8px", md: "85px" }}
+          h={{ base: "8px", md: "85px" }}
+        />
+        <Text mt={{ base: 0, md: 6 }} ml={{ base: 2, md: 0 }}>
+          {text}
+        </Text>
+      </Flex>
+    );
+  };
+
+  return mobile ? (
     <Flex
       w={"full"}
-      maxW={"1160px"}
-      direction={["column", "row"]}
+      maxW={{ base: "275px", md: "1160px" }}
+      wrap="wrap"
       mx="auto"
-      mt={"80px"}
-      align="center"
-      justifyContent={"space-between"}
+      mt={{ base: "36px", md: "80px" }}
+      justifyContent="space-between"
       color={"dark.headingsAndText"}
-      fontSize="24px"
-      fontWeight={"600"}
+      fontSize={{ base: "18px", md: "24px" }}
+      fontWeight={{ base: "500", md: "600" }}
     >
-      <Flex direction={"column"} alignItems="center">
-        <Image
-          src="/assets/cocktail 1.svg"
-          alt="cocktail"
-          width={85}
-          height={85}
+      <TypesComponent
+        src={"/assets/cocktail 1.svg"}
+        alt="cocktail"
+        text="vida noturna"
+      />
+
+      <TypesComponent src={"/assets/surf 1.svg"} alt="praia" text="praia" />
+
+      <Flex w="full" justify={"space-between"} mt="24px">
+        <TypesComponent
+          src={"/assets/building 1.svg"}
+          alt="moderno"
+          text="moderno"
         />
-        <Text mt={6}>vida noturna</Text>
-      </Flex>
 
-      <Flex direction={"column"} alignItems="center">
-        <Image src="/assets/surf 1.svg" alt="cocktail" width={85} height={85} />
-        <Text mt={6}>praia</Text>
-      </Flex>
-
-      <Flex direction={"column"} alignItems="center">
-        <Image
-          src="/assets/building 1.svg"
-          alt="cocktail"
-          width={85}
-          height={85}
-        />
-        <Text mt={6}>moderno</Text>
-      </Flex>
-
-      <Flex direction={"column"} alignItems="center">
-        <Image
+        <TypesComponent
           src="/assets/museum 1.svg"
-          alt="cocktail"
-          width={85}
-          height={85}
+          alt="clássico"
+          text="clássico"
         />
-        <Text mt={6}>clássico</Text>
       </Flex>
 
-      <Flex direction={"column"} alignItems="center">
-        <Image
+      <Flex w="full" justify={"center"} mt="24px">
+        <TypesComponent
           src="/assets/earth 1.svg"
-          alt="cocktail"
-          width={85}
-          height={85}
+          alt="e mais..."
+          text="e mais..."
         />
-        <Text mt={6}>e mais...</Text>
       </Flex>
+    </Flex>
+  ) : (
+    <Flex
+      w={"full"}
+      maxW={{ base: "275px", md: "1160px" }}
+      wrap="wrap"
+      mx="auto"
+      mt={{ base: "36px", md: "80px" }}
+      justifyContent="space-between"
+      color={"dark.headingsAndText"}
+      fontSize={{ base: "18px", md: "24px" }}
+      fontWeight={{ base: "500", md: "600" }}
+    >
+      <TypesComponent
+        src={"/assets/cocktail 1.svg"}
+        alt="cocktail"
+        text="vida noturna"
+      />
+
+      <TypesComponent src={"/assets/surf 1.svg"} alt="praia" text="praia" />
+
+      <TypesComponent
+        src={"/assets/building 1.svg"}
+        alt="moderno"
+        text="moderno"
+      />
+
+      <TypesComponent
+        src="/assets/museum 1.svg"
+        alt="clássico"
+        text="clássico"
+      />
+
+      <TypesComponent
+        src="/assets/earth 1.svg"
+        alt="e mais..."
+        text="e mais..."
+      />
     </Flex>
   );
 };

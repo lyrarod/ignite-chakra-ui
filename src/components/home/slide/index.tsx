@@ -18,7 +18,13 @@ interface SlideProps {
 
 export const Slide = ({ continents }: SlideProps) => {
   return (
-    <Flex w={"full"} maxW={"1240px"} h={"450px"} mx="auto" my={"52px"}>
+    <Flex
+      mx="auto"
+      w={"full"}
+      maxW={{ base: "375px", md: "1240px" }}
+      h={{ base: "250px", md: "450px" }}
+      my={{ base: "20px", md: "52px" }}
+    >
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
         slidesPerView={1}
@@ -34,8 +40,9 @@ export const Slide = ({ continents }: SlideProps) => {
             <Link href={`/continent/${continent.slug}`}>
               <a>
                 <Flex
-                  w={"1240px"}
-                  h={"450px"}
+                  w="full"
+                  maxW={{ base: "375px", md: "1240px" }}
+                  h={{ base: "250px", md: "450px" }}
                   direction={"column"}
                   alignItems={"center"}
                   justifyContent={"center"}
@@ -45,15 +52,15 @@ export const Slide = ({ continents }: SlideProps) => {
                   backgroundImage={`linear-gradient(#00000075, #00000075), url('${continent.slideImg}')`}
                 >
                   <Heading
-                    fontSize={"48px"}
-                    lineHeight={"72px"}
+                    fontSize={{ base: "24px", md: "48px" }}
+                    lineHeight={{ base: "36px", md: "72px" }}
                     color={"light.headingsAndText"}
                   >
                     {continent.name}
                   </Heading>
                   <Text
-                    fontSize={"24px"}
-                    lineHeight={"36px"}
+                    fontSize={{ base: "14px", md: "24px" }}
+                    lineHeight={{ base: "21px", md: "36px" }}
                     color={"light.info"}
                   >
                     {continent.title}

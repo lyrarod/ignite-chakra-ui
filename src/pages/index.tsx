@@ -2,7 +2,7 @@ import Head from "next/head";
 import type { NextPage } from "next";
 import { useEffect, useState } from "react";
 
-import { Box, Flex, Heading } from "@chakra-ui/react";
+import { Divider, Flex, Heading } from "@chakra-ui/react";
 
 import { Slide } from "../components/home/slide";
 import { Banner } from "../components/home/banner";
@@ -37,22 +37,22 @@ const Home: NextPage = () => {
         <Banner />
         <TravelTypes />
 
-        <Box
-          // SEPARADOR
-          width={"90px"}
-          height={`2px`}
-          bg="dark.headingsAndText"
+        <Divider
           mx="auto"
-          mt={20}
+          bg="dark.headingsAndText"
+          width={{ base: "60px", md: "90px" }}
+          height={{ base: "1px", md: "2px" }}
+          mt={{ base: "36px", md: "80px" }}
         />
 
         <Heading
+          fontSize={{ base: "20px", md: "36px" }}
           color={"dark.headingsAndText"}
-          fontWeight={"500"}
+          fontWeight={500}
           textAlign="center"
-          lineHeight="54px"
+          lineHeight={{ base: "30px", md: "54px" }}
           mx="auto"
-          mt={"52px"}
+          mt={{ base: "24px", md: "52px" }}
         >
           Vamos nessa?
           <br />
