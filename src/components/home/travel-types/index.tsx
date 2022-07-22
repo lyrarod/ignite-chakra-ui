@@ -35,18 +35,19 @@ export const TravelTypes = () => {
       wrap="wrap"
       mx="auto"
       mt={{ base: "36px", md: "80px" }}
-      justifyContent="space-between"
       color={"dark.headingsAndText"}
       fontSize={{ base: "18px", md: "24px" }}
       fontWeight={{ base: "500", md: "600" }}
     >
-      <TypesComponent
-        src={"/assets/cocktail 1.svg"}
-        alt="cocktail"
-        text="vida noturna"
-      />
+      <Flex w="full" justify={"space-between"}>
+        <TypesComponent
+          src={"/assets/cocktail 1.svg"}
+          alt="cocktail"
+          text="vida noturna"
+        />
 
-      <TypesComponent src={"/assets/surf 1.svg"} alt="praia" text="praia" />
+        <TypesComponent src={"/assets/surf 1.svg"} alt="praia" text="praia" />
+      </Flex>
 
       <Flex w="full" justify={"space-between"} mt="24px">
         <TypesComponent
