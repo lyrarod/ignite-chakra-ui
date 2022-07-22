@@ -8,8 +8,8 @@ const Logo = () => (
   <Image
     src={"/assets/logo.svg"}
     alt="logo"
-    w={{ base: 81, md: 184 }}
-    h={{ base: 20, md: 45 }}
+    w={{ base: "81px", md: "184px" }}
+    h={{ base: "20px", md: "45px" }}
   />
 );
 
@@ -27,9 +27,10 @@ export const Header = () => {
       bg="bgColor"
       boxShadow={"0 2px 3px #00000030"}
       position={asPath !== "/" ? "fixed" : "static"}
+      zIndex={"999"}
     >
       <Flex
-        w={1160}
+        w={"1160px"}
         mx="auto"
         align="center"
         justify="center"
@@ -39,11 +40,11 @@ export const Header = () => {
           <Link href={"/"}>
             <a>
               <ChevronLeftIcon
-                w={"2em"}
-                h={"2em"}
-                color="#47585B"
+                w={{ base: "16px", md: "32px" }}
+                h={{ base: "16px", md: "32px" }}
+                color="dark.headingsAndText"
                 position={"absolute"}
-                left={0}
+                left={{ base: "16px", md: 0 }}
                 top={"50%"}
                 transform={"translateY(-50%)"}
               />

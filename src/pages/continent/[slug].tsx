@@ -44,12 +44,12 @@ export default function Continent({ continent }: ContinentProps) {
         mx={"auto"}
         direction={"column"}
         overflow={"hidden"}
-        pt={"100px"}
+        pt={{ base: "50px", md: "100px" }}
       >
         <Flex
           // BANNER
           w={"full"}
-          h={"500px"}
+          h={{ base: "150px", md: "500px" }}
           backgroundSize={"cover"}
           backgroundPosition={"center"}
           backgroundRepeat={"no-repeat"}
@@ -59,10 +59,15 @@ export default function Continent({ continent }: ContinentProps) {
             w={"full"}
             maxW={"1160px"}
             mx={"auto"}
-            mb={"59px"}
-            alignSelf={"end"}
+            mb={{ base: 0, md: "59px" }}
+            alignSelf={{ base: "center", md: "end" }}
+            justify={{ base: "center", md: "initial" }}
           >
-            <Heading fontSize={"48px"} lineHeight={"72px"} fontWeight={"600"}>
+            <Heading
+              fontSize={{ base: "28px", md: "48px" }}
+              lineHeight={{ base: "42px", md: "72px" }}
+              fontWeight={"600"}
+            >
               {continent.name}
             </Heading>
           </Flex>
@@ -73,80 +78,94 @@ export default function Continent({ continent }: ContinentProps) {
           w={"full"}
           maxW={"1160px"}
           mx={"auto"}
-          my={"80px"}
+          mt={{ base: "24px", md: "80px" }}
           align={"center"}
-          // bg={"gray.200"}
+          flexDir={{ base: "column", md: "row" }}
         >
-          <Flex w={"600px"}>
+          <Flex w={{ base: "343px", md: "600px" }}>
             <Text
-              fontSize={"24px"}
+              fontSize={{ base: "14px", md: "24px" }}
               color={"dark.headingsAndText"}
-              lineHeight={"36px"}
+              lineHeight={{ base: "21px", md: "36px" }}
               textAlign={"justify"}
             >
               {continent.bio}
             </Text>
           </Flex>
 
-          <Flex ml={"70px"} w={"490px"} justify={"space-between"}>
-            <Flex direction={"column"} align={"center"}>
+          <Flex
+            ml={{ base: 0, md: "70px" }}
+            mt={{ base: "16px", md: 0 }}
+            w={{ base: "343px", md: "490px" }}
+            justify={"space-between"}
+          >
+            <Flex
+              direction={"column"}
+              align={{ base: "initial", md: "center" }}
+            >
               <Heading
-                color={"highlight"}
-                fontSize={48}
                 fontWeight={600}
-                lineHeight={"72px"}
+                color={"highlight"}
+                fontSize={{ base: "24px", md: "48px" }}
+                lineHeight={{ base: "36px", md: "72px" }}
               >
                 {continent.info.paises}
               </Heading>
               <Text
+                fontWeight={400}
+                fontSize={{ base: "18px", md: "24px" }}
+                lineHeight={{ base: "27px", md: "36px" }}
                 color={"dark.headingsAndText"}
-                fontWeight={600}
-                fontSize={24}
-                lineHeight={"36px"}
               >
                 países
               </Text>
             </Flex>
 
-            <Flex direction={"column"} align={"center"}>
+            <Flex
+              direction={"column"}
+              align={{ base: "initial", md: "center" }}
+            >
               <Heading
-                color={"highlight"}
-                fontSize={48}
                 fontWeight={600}
-                lineHeight={"72px"}
+                color={"highlight"}
+                fontSize={{ base: "24px", md: "48px" }}
+                lineHeight={{ base: "36px", md: "72px" }}
               >
                 {continent.info.linguas}
               </Heading>
               <Text
+                fontWeight={400}
+                fontSize={{ base: "18px", md: "24px" }}
+                lineHeight={{ base: "27px", md: "36px" }}
                 color={"dark.headingsAndText"}
-                fontWeight={600}
-                fontSize={24}
-                lineHeight={"36px"}
               >
                 línguas
               </Text>
             </Flex>
 
-            <Flex direction={"column"} align={"center"}>
+            <Flex
+              direction={"column"}
+              align={{ base: "initial", md: "center" }}
+            >
               <Heading
-                color={"highlight"}
-                fontSize={48}
                 fontWeight={600}
-                lineHeight={"72px"}
+                color={"highlight"}
+                fontSize={{ base: "24px", md: "48px" }}
+                lineHeight={{ base: "36px", md: "72px" }}
               >
                 {continent.info.cidadesmais}
               </Heading>
               <Text
+                fontWeight={400}
+                fontSize={{ base: "18px", md: "24px" }}
+                lineHeight={{ base: "27px", md: "36px" }}
                 color={"dark.headingsAndText"}
-                fontWeight={600}
-                fontSize={24}
-                lineHeight={"36px"}
               >
                 cidades +100
                 <Tooltip hasArrow label={continent.bio} fontSize="md">
                   <InfoOutlineIcon
                     ml={"5px"}
-                    fontSize={"16px"}
+                    fontSize={{ base: "10px", md: "16px" }}
                     color={"dark.info50"}
                   />
                 </Tooltip>
@@ -159,32 +178,34 @@ export default function Continent({ continent }: ContinentProps) {
           // CIDADES +100 CONTAINER
 
           w={"full"}
-          maxW={1160}
+          maxW={{ base: "343px", md: "1160px" }}
           mx={"auto"}
           direction={"column"}
-          // bg={"gray.200"}
+          mt={{ base: "32px", md: "80px" }}
         >
           <Heading
             color={"dark.headingsAndText"}
             fontWeight={500}
-            lineHeight={"54px"}
+            lineHeight={{ base: "36px", md: "54px" }}
+            fontSize={{ base: "24px", md: "36px" }}
           >
             Cidades +100
           </Heading>
 
           <Flex
             // CIDADES +100 CARD CONTAINER
-            gap={45}
+            gap={{ base: "20px", md: "45px" }}
             w={"full"}
-            my={"40px"}
+            my={{ base: "20px", md: "40px" }}
             wrap={"wrap"}
+            justify={{ base: "center", md: "initial" }}
           >
             {continent.cities?.map((c, i) => (
               <Flex
                 // CIDADES +100 CARDS
                 key={`${c.city}${i}`}
-                w={256}
-                h={279}
+                w={"256px"}
+                h={"279px"}
                 borderRadius={"4px"}
                 overflow={"hidden"}
                 direction={"column"}
