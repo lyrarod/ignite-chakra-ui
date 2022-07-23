@@ -1,5 +1,4 @@
-import { Flex, Image, Text } from "@chakra-ui/react";
-import { useBreakpointValue } from "@chakra-ui/react";
+import { Flex, Image, Text, useMediaQuery } from "@chakra-ui/react";
 
 type TypesComponentProps = {
   src: string;
@@ -8,15 +7,15 @@ type TypesComponentProps = {
 };
 
 export const TravelTypes = () => {
-  const mobile = useBreakpointValue({ base: true, md: false });
+  const [mobile] = useMediaQuery("(max-width: 767px)");
 
   const TypesComponent = ({ src, alt, text }: TypesComponentProps) => {
-    const ellipse = "/assets/ellipse-home.png";
+    const srcImg = mobile ? "/assets/ellipse-home.png" : src;
 
     return (
       <Flex align="center" direction={{ base: "row", md: "column" }}>
         <Image
-          src={mobile ? ellipse : src}
+          src={srcImg}
           alt={alt}
           w={{ base: "8px", md: "85px" }}
           h={{ base: "8px", md: "85px" }}
